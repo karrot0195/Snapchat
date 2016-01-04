@@ -1,0 +1,6 @@
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\sourcechat\sourceChat\DataChat\DataChat\bin\DataChat.dll.config
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\sourcechat\sourceChat\DataChat\DataChat\bin\DataChat.dll
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\sourcechat\sourceChat\DataChat\DataChat\bin\DataChat.pdb
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\sourcechat\sourceChat\DataChat\DataChat\obj\Debug\DataChat.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\sourcechat\sourceChat\DataChat\DataChat\obj\Debug\DataChat.dll
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\sourcechat\sourceChat\DataChat\DataChat\obj\Debug\DataChat.pdb

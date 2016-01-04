@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="connectData">
+        <s:complexType />
+      </s:element>
+      <s:element name="connectDataResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="loadAllData">
+        <s:complexType />
+      </s:element>
+      <s:element name="loadAllDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loadAllDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loadDatafromTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="table" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="queue" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loadDatafromTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loadDatafromTableResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="changeState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="changeStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="changeStateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="findIDfromUsername">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="s" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="findIDfromUsernameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="findIDfromUsernameResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="findUsernamefromID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="findUsernamefromIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="findUsernamefromIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertDatatoMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id_user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="id_sender" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="time" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertDatatoMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertDatatoMessageResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="connectDataSoapIn">
+    <wsdl:part name="parameters" element="tns:connectData" />
+  </wsdl:message>
+  <wsdl:message name="connectDataSoapOut">
+    <wsdl:part name="parameters" element="tns:connectDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="loadAllDataSoapIn">
+    <wsdl:part name="parameters" element="tns:loadAllData" />
+  </wsdl:message>
+  <wsdl:message name="loadAllDataSoapOut">
+    <wsdl:part name="parameters" element="tns:loadAllDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="loadDatafromTableSoapIn">
+    <wsdl:part name="parameters" element="tns:loadDatafromTable" />
+  </wsdl:message>
+  <wsdl:message name="loadDatafromTableSoapOut">
+    <wsdl:part name="parameters" element="tns:loadDatafromTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="changeStateSoapIn">
+    <wsdl:part name="parameters" element="tns:changeState" />
+  </wsdl:message>
+  <wsdl:message name="changeStateSoapOut">
+    <wsdl:part name="parameters" element="tns:changeStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="findIDfromUsernameSoapIn">
+    <wsdl:part name="parameters" element="tns:findIDfromUsername" />
+  </wsdl:message>
+  <wsdl:message name="findIDfromUsernameSoapOut">
+    <wsdl:part name="parameters" element="tns:findIDfromUsernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="findUsernamefromIDSoapIn">
+    <wsdl:part name="parameters" element="tns:findUsernamefromID" />
+  </wsdl:message>
+  <wsdl:message name="findUsernamefromIDSoapOut">
+    <wsdl:part name="parameters" element="tns:findUsernamefromIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertDatatoMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:insertDatatoMessage" />
+  </wsdl:message>
+  <wsdl:message name="insertDatatoMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:insertDatatoMessageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Service_DatachatSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="connectData">
+      <wsdl:input message="tns:connectDataSoapIn" />
+      <wsdl:output message="tns:connectDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loadAllData">
+      <wsdl:input message="tns:loadAllDataSoapIn" />
+      <wsdl:output message="tns:loadAllDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loadDatafromTable">
+      <wsdl:input message="tns:loadDatafromTableSoapIn" />
+      <wsdl:output message="tns:loadDatafromTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="changeState">
+      <wsdl:input message="tns:changeStateSoapIn" />
+      <wsdl:output message="tns:changeStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="findIDfromUsername">
+      <wsdl:input message="tns:findIDfromUsernameSoapIn" />
+      <wsdl:output message="tns:findIDfromUsernameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="findUsernamefromID">
+      <wsdl:input message="tns:findUsernamefromIDSoapIn" />
+      <wsdl:output message="tns:findUsernamefromIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertDatatoMessage">
+      <wsdl:input message="tns:insertDatatoMessageSoapIn" />
+      <wsdl:output message="tns:insertDatatoMessageSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service_DatachatSoap" type="tns:Service_DatachatSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="connectData">
+      <soap:operation soapAction="http://tempuri.org/connectData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadAllData">
+      <soap:operation soapAction="http://tempuri.org/loadAllData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadDatafromTable">
+      <soap:operation soapAction="http://tempuri.org/loadDatafromTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changeState">
+      <soap:operation soapAction="http://tempuri.org/changeState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findIDfromUsername">
+      <soap:operation soapAction="http://tempuri.org/findIDfromUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findUsernamefromID">
+      <soap:operation soapAction="http://tempuri.org/findUsernamefromID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertDatatoMessage">
+      <soap:operation soapAction="http://tempuri.org/insertDatatoMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service_DatachatSoap12" type="tns:Service_DatachatSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="connectData">
+      <soap12:operation soapAction="http://tempuri.org/connectData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadAllData">
+      <soap12:operation soapAction="http://tempuri.org/loadAllData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadDatafromTable">
+      <soap12:operation soapAction="http://tempuri.org/loadDatafromTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changeState">
+      <soap12:operation soapAction="http://tempuri.org/changeState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findIDfromUsername">
+      <soap12:operation soapAction="http://tempuri.org/findIDfromUsername" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findUsernamefromID">
+      <soap12:operation soapAction="http://tempuri.org/findUsernamefromID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertDatatoMessage">
+      <soap12:operation soapAction="http://tempuri.org/insertDatatoMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service_Datachat">
+    <wsdl:port name="Service_DatachatSoap" binding="tns:Service_DatachatSoap">
+      <soap:address location="http://localhost:1066/Service_Datachat.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service_DatachatSoap12" binding="tns:Service_DatachatSoap12">
+      <soap12:address location="http://localhost:1066/Service_Datachat.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
