@@ -57,18 +57,35 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="changeState">
+      <s:element name="changeStateUser">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="changeStateResponse">
+      <s:element name="changeStateUserResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="changeStateResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="changeStateUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="changeStateMess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="id1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="id2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="changeStateMessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="changeStateMessResult" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -100,6 +117,25 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="insertUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FullName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertUsersResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="insertDatatoMessage">
         <s:complexType>
           <s:sequence>
@@ -107,6 +143,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="id_sender" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="time" type="s:dateTime" />
             <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -143,11 +180,17 @@
   <wsdl:message name="loadDatafromTableSoapOut">
     <wsdl:part name="parameters" element="tns:loadDatafromTableResponse" />
   </wsdl:message>
-  <wsdl:message name="changeStateSoapIn">
-    <wsdl:part name="parameters" element="tns:changeState" />
+  <wsdl:message name="changeStateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:changeStateUser" />
   </wsdl:message>
-  <wsdl:message name="changeStateSoapOut">
-    <wsdl:part name="parameters" element="tns:changeStateResponse" />
+  <wsdl:message name="changeStateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:changeStateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="changeStateMessSoapIn">
+    <wsdl:part name="parameters" element="tns:changeStateMess" />
+  </wsdl:message>
+  <wsdl:message name="changeStateMessSoapOut">
+    <wsdl:part name="parameters" element="tns:changeStateMessResponse" />
   </wsdl:message>
   <wsdl:message name="findIDfromUsernameSoapIn">
     <wsdl:part name="parameters" element="tns:findIDfromUsername" />
@@ -160,6 +203,12 @@
   </wsdl:message>
   <wsdl:message name="findUsernamefromIDSoapOut">
     <wsdl:part name="parameters" element="tns:findUsernamefromIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:insertUsers" />
+  </wsdl:message>
+  <wsdl:message name="insertUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:insertUsersResponse" />
   </wsdl:message>
   <wsdl:message name="insertDatatoMessageSoapIn">
     <wsdl:part name="parameters" element="tns:insertDatatoMessage" />
@@ -184,9 +233,13 @@
       <wsdl:input message="tns:loadDatafromTableSoapIn" />
       <wsdl:output message="tns:loadDatafromTableSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="changeState">
-      <wsdl:input message="tns:changeStateSoapIn" />
-      <wsdl:output message="tns:changeStateSoapOut" />
+    <wsdl:operation name="changeStateUser">
+      <wsdl:input message="tns:changeStateUserSoapIn" />
+      <wsdl:output message="tns:changeStateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="changeStateMess">
+      <wsdl:input message="tns:changeStateMessSoapIn" />
+      <wsdl:output message="tns:changeStateMessSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="findIDfromUsername">
       <wsdl:input message="tns:findIDfromUsernameSoapIn" />
@@ -195,6 +248,10 @@
     <wsdl:operation name="findUsernamefromID">
       <wsdl:input message="tns:findUsernamefromIDSoapIn" />
       <wsdl:output message="tns:findUsernamefromIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertUsers">
+      <wsdl:input message="tns:insertUsersSoapIn" />
+      <wsdl:output message="tns:insertUsersSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="insertDatatoMessage">
       <wsdl:input message="tns:insertDatatoMessageSoapIn" />
@@ -239,8 +296,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="changeState">
-      <soap:operation soapAction="http://tempuri.org/changeState" style="document" />
+    <wsdl:operation name="changeStateUser">
+      <soap:operation soapAction="http://tempuri.org/changeStateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changeStateMess">
+      <soap:operation soapAction="http://tempuri.org/changeStateMess" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -259,6 +325,15 @@
     </wsdl:operation>
     <wsdl:operation name="findUsernamefromID">
       <soap:operation soapAction="http://tempuri.org/findUsernamefromID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertUsers">
+      <soap:operation soapAction="http://tempuri.org/insertUsers" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -314,8 +389,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="changeState">
-      <soap12:operation soapAction="http://tempuri.org/changeState" style="document" />
+    <wsdl:operation name="changeStateUser">
+      <soap12:operation soapAction="http://tempuri.org/changeStateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changeStateMess">
+      <soap12:operation soapAction="http://tempuri.org/changeStateMess" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -334,6 +418,15 @@
     </wsdl:operation>
     <wsdl:operation name="findUsernamefromID">
       <soap12:operation soapAction="http://tempuri.org/findUsernamefromID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertUsers">
+      <soap12:operation soapAction="http://tempuri.org/insertUsers" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

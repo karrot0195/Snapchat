@@ -26,7 +26,6 @@ namespace SnapChat
         {
             vl.clickDangNhap(txtuser, txtpass);
         }
-        #endregion
 
         private void btn_dangki_Click(object sender, EventArgs e)
         {
@@ -37,6 +36,22 @@ namespace SnapChat
         {
 
         }
-       
+
+        private void linkLb_Sign_MouseClick(object sender, MouseEventArgs e)
+        {
+
+            DangKi dk = new DangKi();
+            dk.Show();
+            //   this.Close();
+        }
+
+        private void linkLb_Sign_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            DangKi dk = new DangKi();
+        }
+        #endregion
+
+      
+
     }
 }

@@ -44,12 +44,19 @@ namespace SnapChat.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/loadDatafromTable", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataSet> loadDatafromTableAsync(string table, string queue);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/changeState", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/changeStateUser", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool changeState(string p, string id);
+        bool changeStateUser(string state, string id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/changeState", ReplyAction="*")]
-        System.Threading.Tasks.Task<bool> changeStateAsync(string p, string id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/changeStateUser", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> changeStateUserAsync(string state, string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/changeStateMess", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool changeStateMess(string state, string id1, string id2, string dt);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/changeStateMess", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> changeStateMessAsync(string state, string id1, string id2, string dt);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/findIDfromUsername", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -65,12 +72,19 @@ namespace SnapChat.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/findUsernamefromID", ReplyAction="*")]
         System.Threading.Tasks.Task<string> findUsernamefromIDAsync(int ID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertDatatoMessage", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertUsers", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool insertDatatoMessage(string id_user, string id_sender, System.DateTime time, string content);
+        bool insertUsers(string User, string Pass, string State, string FullName, string Email, string Address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertUsers", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> insertUsersAsync(string User, string Pass, string State, string FullName, string Email, string Address);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertDatatoMessage", ReplyAction="*")]
-        System.Threading.Tasks.Task<bool> insertDatatoMessageAsync(string id_user, string id_sender, System.DateTime time, string content);
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool insertDatatoMessage(string id_user, string id_sender, System.DateTime time, string content, string State);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertDatatoMessage", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> insertDatatoMessageAsync(string id_user, string id_sender, System.DateTime time, string content, string State);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -132,12 +146,20 @@ namespace SnapChat.ServiceReference1 {
             return base.Channel.loadDatafromTableAsync(table, queue);
         }
         
-        public bool changeState(string p, string id) {
-            return base.Channel.changeState(p, id);
+        public bool changeStateUser(string state, string id) {
+            return base.Channel.changeStateUser(state, id);
         }
         
-        public System.Threading.Tasks.Task<bool> changeStateAsync(string p, string id) {
-            return base.Channel.changeStateAsync(p, id);
+        public System.Threading.Tasks.Task<bool> changeStateUserAsync(string state, string id) {
+            return base.Channel.changeStateUserAsync(state, id);
+        }
+        
+        public bool changeStateMess(string state, string id1, string id2, string dt) {
+            return base.Channel.changeStateMess(state, id1, id2, dt);
+        }
+        
+        public System.Threading.Tasks.Task<bool> changeStateMessAsync(string state, string id1, string id2, string dt) {
+            return base.Channel.changeStateMessAsync(state, id1, id2, dt);
         }
         
         public int findIDfromUsername(string s) {
@@ -156,12 +178,20 @@ namespace SnapChat.ServiceReference1 {
             return base.Channel.findUsernamefromIDAsync(ID);
         }
         
-        public bool insertDatatoMessage(string id_user, string id_sender, System.DateTime time, string content) {
-            return base.Channel.insertDatatoMessage(id_user, id_sender, time, content);
+        public bool insertUsers(string User, string Pass, string State, string FullName, string Email, string Address) {
+            return base.Channel.insertUsers(User, Pass, State, FullName, Email, Address);
         }
         
-        public System.Threading.Tasks.Task<bool> insertDatatoMessageAsync(string id_user, string id_sender, System.DateTime time, string content) {
-            return base.Channel.insertDatatoMessageAsync(id_user, id_sender, time, content);
+        public System.Threading.Tasks.Task<bool> insertUsersAsync(string User, string Pass, string State, string FullName, string Email, string Address) {
+            return base.Channel.insertUsersAsync(User, Pass, State, FullName, Email, Address);
+        }
+        
+        public bool insertDatatoMessage(string id_user, string id_sender, System.DateTime time, string content, string State) {
+            return base.Channel.insertDatatoMessage(id_user, id_sender, time, content, State);
+        }
+        
+        public System.Threading.Tasks.Task<bool> insertDatatoMessageAsync(string id_user, string id_sender, System.DateTime time, string content, string State) {
+            return base.Channel.insertDatatoMessageAsync(id_user, id_sender, time, content, State);
         }
     }
 }

@@ -18,6 +18,7 @@ namespace DataChat
     // [System.Web.Script.Services.ScriptService]
     public class Service_Datachat : System.Web.Services.WebService
     {
+        //Biến kết nối
         private String connect;
 
         public String Connect1
@@ -59,11 +60,13 @@ namespace DataChat
             return "Hello World";
         }
         [WebMethod]
+        //Kết nối CSDL
         public void connectData(){
             Connect = System.Configuration.ConfigurationSettings.AppSettings["connectstring"];
             Cnt = new SqlConnection();
             Cnt.ConnectionString = Connect;
         }
+        //Load tất cả dữ liệu bản Users
          [WebMethod]
         public DataSet loadAllData()
         {
@@ -75,6 +78,7 @@ namespace DataChat
             Da.Fill(Ds);
             return Ds;
         }
+        //Load dữ liệu từ bản table
          [WebMethod]
          public DataSet loadDatafromTable(String table, String queue)
          {
@@ -88,12 +92,13 @@ namespace DataChat
              Da.Fill(Ds);
              return Ds;
          }
+        //Thay đổi trang thái online của người dùng
          [WebMethod]
-        public bool changeState(String p, String id)
+        public bool changeStateUser(String state, String id)
          {
              connectData();             
              Cnt.Open();
-             String t = "UPDATE Users set State='"+p+"' where IDUser='"+id+"'";
+             String t = "UPDATE Users set State='"+state+"' where IDUser='"+id+"'";
              SqlCommand cmn = new SqlCommand();
              cmn.Connection = Cnt;
              cmn.CommandType = CommandType.Text;
@@ -102,6 +107,21 @@ namespace DataChat
               Cnt.Close();
              return true;
          }
+        [WebMethod]
+        public bool changeStateMess(String state, String id1, String id2, String dt)
+        {
+            connectData();
+            Cnt.Open();
+            String t = "UPDATE Message set State='" + state + "' where IDUser=' " + id1 +"' and IDSender = '" +id2+ "' and DateTime = '" + dt + "'";
+            SqlCommand cmn = new SqlCommand();
+            cmn.Connection = Cnt;
+            cmn.CommandType = CommandType.Text;
+            cmn.CommandText = t;
+            cmn.ExecuteNonQuery();
+            Cnt.Close();
+            return true;
+        }
+
         [WebMethod]
         public int findIDfromUsername(String s)
          {
@@ -128,14 +148,43 @@ namespace DataChat
              }
             
          }
-            [WebMethod]
-       public bool insertDatatoMessage(string id_user, string id_sender,DateTime time, string content)
+        //Chèn thêm thêm dữ liệu vào bảng table
+        [WebMethod]
+        public bool insertUsers(String User, String Pass, String State, String FullName, String Email, String Address)
+        {
+            try
+            {
+                String id = loadDatafromTable("Users", "").Tables[0].Rows.Count+1+"";
+                if (findIDfromUsername(User) == 0) return false;
+                connectData();
+                Cnt.Open();
+               
+                String t = "insert Users values('" + id + "','" + User + "','" + Pass + "','" + State + "','" + FullName + "','" + Email + "','" + Address + "')";
+                SqlCommand cmn = new SqlCommand();
+                cmn.Connection = Cnt;
+                cmn.CommandType = CommandType.Text;
+                cmn.CommandText = t;
+                cmn.ExecuteNonQuery();
+                Cnt.Close();
+                return true;
+                //String t = "insert Users values('"  +id +"','" + User + "','" + Pass + "','" + State + "','" + FullName +"','"+Email+"','"+Address +"')";
+
+            }
+            catch
+            {
+                return false;
+            }
+  
+        }
+      //Thêm dữ liệu vào table Message
+        [WebMethod]
+       public bool insertDatatoMessage(string id_user, string id_sender,DateTime time, string content, String State)
         {
             try
             {
                 connectData();
                 Cnt.Open();
-                String t = "insert Message values('" + id_user + "','" + id_sender + "','" + time + "','" + content + "')";
+                String t = "insert Message values('" + id_user + "','" + id_sender + "','" + time + "','" + content + "','"+ State+"')";
                 SqlCommand cmn = new SqlCommand();
                 cmn.Connection = Cnt;
                 cmn.CommandType = CommandType.Text;

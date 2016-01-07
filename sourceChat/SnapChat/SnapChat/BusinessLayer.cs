@@ -12,22 +12,25 @@ namespace SnapChat
 {
     class BusinessLayer
     {
+        //Webservice
         public ServiceReference1.Service_DatachatSoapClient svcl;
+        //Dataset
         public DataSet ds;
 
         //contructor
         public BusinessLayer()
         {
             svcl = new ServiceReference1.Service_DatachatSoapClient();
+            //load dữ liệu bảng Users cho dataset
             ds = svcl.loadDatafromTable("Users","");
         }
 
-        //load dữ liệu user
+        //load dữ liệu của bảng nametable với điều kiện queue
         public DataSet loadData(String nametable, String queue)
         {
             return svcl.loadDatafromTable(nametable, queue);
         }
-        
+        //Load danh sách chat
         public void loadListViewChat(String ID, ListView lv){
             //chứa list ban be
             DataSet ds = loadData("FriendList", "");
@@ -39,12 +42,11 @@ namespace SnapChat
             DataTable dt2 = ds2.Tables[0];
             //
             lv.View = View.Details;
-            lv.Columns.Add("Friends");
-            lv.Columns.Add("Stast");
+            lv.Columns.Add("Friends", 100);
+            lv.Columns.Add("Stast",100);
             //truyen du lieu vao listview
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                //String s1 = dt.Rows[i]["IDUser"].ToString();
                 if (dt.Rows[i]["IDUser"].ToString().Equals(ID))
                 {
                     for (int j = 0; j < dt2.Rows.Count; j++)
@@ -60,11 +62,13 @@ namespace SnapChat
                 }
             }
         }
-        //thao tac state cua user
+
+        //giá trị state của user
         public bool isState(String p, String id)
         {
-            return svcl.changeState(p, id);
+            return svcl.changeStateUser(p, id);
         }
+
         //kiểm tra đăng nhập
         internal int testDangNhap(System.Windows.Forms.TextBox txtuser, System.Windows.Forms.TextBox txtpass)
         {
@@ -85,16 +89,15 @@ namespace SnapChat
             }
                 return 0;
         }
-
-      
-       
-        internal bool saveDataOfMess(int id_user, string p1, string p2)
+       //Lưu tin nhắn gửi đi
+        internal bool saveDataOfMess(int id_user, string sendername, string content)
         {
-            int idsender = svcl.findIDfromUsername(p1);
-            return svcl.insertDatatoMessage(id_user+"", idsender+"",DateTime.Now, p2);
+            int idsender = svcl.findIDfromUsername(sendername);
+            return svcl.insertDatatoMessage(id_user + "", idsender + "", DateTime.Now, content, "0");
         }
 
-        internal void loadMessage(string idUser, Label lb_Sender, ListView listView_khungchat)
+        //load tất cả tin nhắn lên
+        internal void loadallMessage(string idUser, Label lb_Sender, ListView listView_khungchat)
         {
            String idSender = svcl.findIDfromUsername(lb_Sender.Text)+"";
                 //Danh sách tin nhắn theo thứ thự sắp xếp thời gian
@@ -105,12 +108,15 @@ namespace SnapChat
                 {
                     DataRow row = tb.Rows[i];
                     string mess = "";
+                    //Tin được nhận
                     if (row[1].ToString() == idUser && row[0].ToString()== idSender)
                     {
+                       svcl.changeStateMess("true", row[0].ToString(), row[1].ToString(), row[2].ToString());
                         mess = lb_Sender.Text + ": " + row["Message"].ToString();
                         ListViewItem item = new ListViewItem(mess);
                         listView_khungchat.Items.Add(item);
                     }
+                        //tin gửi
                     else if (row[1].ToString() == idSender && row[0].ToString() == idUser)
                     {
                         mess = "me: " + row["Message"].ToString();
@@ -119,6 +125,37 @@ namespace SnapChat
                     }
                     
                 }
+        }
+
+        internal void loadnewMessage(string idUser, Label lb_Sender, ListView listView_khungchat)
+        {
+            String idSender = svcl.findIDfromUsername(lb_Sender.Text) + "";
+            //Danh sách tin nhắn theo thứ thự sắp xếp thời gian
+            DataTable tb = svcl.loadDatafromTable("Message order by DateTime", "").Tables[0];
+            //
+            for (int i = 0; i < tb.Rows.Count; i++)
+            {
+                DataRow row = tb.Rows[i];
+                string mess = "";
+                //Tin được nhận
+                if (row[1].ToString() == idUser && row[0].ToString() == idSender && row[4].ToString()=="False")
+                {
+                    svcl.changeStateMess("true", row[0].ToString(), row[1].ToString(), row[2].ToString());
+                    mess = lb_Sender.Text + ": " + row["Message"].ToString();
+                    ListViewItem item = new ListViewItem(mess);
+                    listView_khungchat.Items.Add(item);
+                }
+            }
+          
+        }
+
+        internal bool testDangKi(TextBox txt_username, TextBox txt_pas, TextBox txt_re, TextBox txt_email)
+        {
+            if (txt_pas.Text != txt_re.Text)
+            {
+                return false;
+            }
+            return svcl.insertUsers(txt_username.Text, txt_pas.Text, "False", "", txt_email.Text, "");
         }
     }
 }

@@ -53,7 +53,7 @@ namespace SnapChat
         private void btn_gui_Click(object sender, EventArgs e)
         {
 
-            viewLayer.sendMessage(id_user, lb_Sender.Text, txt_tinnhan, listView_khungchat);
+            viewLayer.clicksendMessage(id_user, lb_Sender.Text, txt_tinnhan, listView_khungchat);
         }
 
         private void frmGiaoDien_FormClosing(object sender, FormClosingEventArgs e)
@@ -70,6 +70,7 @@ namespace SnapChat
                 ListView lv = (ListView)sender;
                 listView_khungchat.Clear();
                 lb_Sender.Text = lv.SelectedItems[0].Text;
+                //
                 viewLayer.loadMessage(id_user, lb_Sender, listView_khungchat);
                 loadeventLKhungChat.Start();
                
@@ -94,8 +95,8 @@ namespace SnapChat
 
         private void loadeventLKhungChat_Tick(object sender, EventArgs e)
         {
-            listView_khungchat.Clear();
-            viewLayer.loadMessage(id_user, lb_Sender, listView_khungchat);
+            //listView_khungchat.Clear();
+            viewLayer.loadnewMessage(id_user, lb_Sender, listView_khungchat);
 
         }
     }
