@@ -42,6 +42,7 @@
             this.thêmBạnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xóaBạnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xóaTàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox_clock = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_clock)).BeginInit();
@@ -71,10 +72,10 @@
             // listView_khungchat
             // 
             this.listView_khungchat.Alignment = System.Windows.Forms.ListViewAlignment.Default;
-            this.listView_khungchat.BackColor = System.Drawing.Color.MediumOrchid;
-            this.listView_khungchat.BackgroundImage = global::SnapChat.Properties.Resources.Icon1;
+            this.listView_khungchat.BackColor = System.Drawing.Color.Violet;
+            this.listView_khungchat.BackgroundImage = global::SnapChat.Properties.Resources.Icon3;
             this.listView_khungchat.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView_khungchat.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.listView_khungchat.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.listView_khungchat.Location = new System.Drawing.Point(25, 35);
             this.listView_khungchat.MultiSelect = false;
             this.listView_khungchat.Name = "listView_khungchat";
@@ -141,7 +142,8 @@
             this.chứcNăngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thêmBạnToolStripMenuItem,
             this.xóaBạnToolStripMenuItem,
-            this.xóaTàiKhoảnToolStripMenuItem});
+            this.xóaTàiKhoảnToolStripMenuItem,
+            this.đăngXuấtToolStripMenuItem});
             this.chứcNăngToolStripMenuItem.Name = "chứcNăngToolStripMenuItem";
             this.chứcNăngToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.chứcNăngToolStripMenuItem.Text = "Chức Năng";
@@ -149,30 +151,41 @@
             // thêmBạnToolStripMenuItem
             // 
             this.thêmBạnToolStripMenuItem.Name = "thêmBạnToolStripMenuItem";
-            this.thêmBạnToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.thêmBạnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.thêmBạnToolStripMenuItem.Text = "Thêm Bạn";
+            this.thêmBạnToolStripMenuItem.Click += new System.EventHandler(this.thêmBạnToolStripMenuItem_Click);
             // 
             // xóaBạnToolStripMenuItem
             // 
             this.xóaBạnToolStripMenuItem.Name = "xóaBạnToolStripMenuItem";
-            this.xóaBạnToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.xóaBạnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.xóaBạnToolStripMenuItem.Text = "Xóa bạn";
+            this.xóaBạnToolStripMenuItem.Click += new System.EventHandler(this.xóaBạnToolStripMenuItem_Click);
             // 
             // xóaTàiKhoảnToolStripMenuItem
             // 
             this.xóaTàiKhoảnToolStripMenuItem.Name = "xóaTàiKhoảnToolStripMenuItem";
-            this.xóaTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.xóaTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.xóaTàiKhoảnToolStripMenuItem.Text = "Xóa tài khoản";
+            this.xóaTàiKhoảnToolStripMenuItem.Click += new System.EventHandler(this.xóaTàiKhoảnToolStripMenuItem_Click);
+            // 
+            // đăngXuấtToolStripMenuItem
+            // 
+            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
+            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
             // pictureBox_clock
             // 
             this.pictureBox_clock.Image = global::SnapChat.Properties.Resources.clock;
-            this.pictureBox_clock.Location = new System.Drawing.Point(77, 241);
+            this.pictureBox_clock.Location = new System.Drawing.Point(79, 240);
             this.pictureBox_clock.Name = "pictureBox_clock";
             this.pictureBox_clock.Size = new System.Drawing.Size(14, 15);
             this.pictureBox_clock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_clock.TabIndex = 7;
             this.pictureBox_clock.TabStop = false;
+            this.pictureBox_clock.Click += new System.EventHandler(this.pictureBox_clock_Click);
             // 
             // frmGiaoDien
             // 
@@ -217,5 +230,6 @@
         private System.Windows.Forms.ToolStripMenuItem xóaBạnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xóaTàiKhoảnToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox_clock;
+        private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
     }
 }

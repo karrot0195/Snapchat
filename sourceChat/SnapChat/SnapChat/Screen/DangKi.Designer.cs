@@ -44,6 +44,7 @@
             // btn_log
             // 
             this.btn_log.BackColor = System.Drawing.Color.DarkViolet;
+            this.btn_log.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btn_log.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_log.ForeColor = System.Drawing.Color.Transparent;
             this.btn_log.Location = new System.Drawing.Point(42, 195);
@@ -57,6 +58,7 @@
             // btn_exit
             // 
             this.btn_exit.BackColor = System.Drawing.Color.DarkViolet;
+            this.btn_exit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_exit.ForeColor = System.Drawing.Color.Transparent;
             this.btn_exit.Location = new System.Drawing.Point(152, 195);

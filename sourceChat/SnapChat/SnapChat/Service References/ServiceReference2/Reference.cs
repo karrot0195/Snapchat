@@ -8,13 +8,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SnapChat.ServiceReference1 {
+namespace SnapChat.ServiceReference2 {
     using System.Data;
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.Service_DatachatSoap")]
-    public interface Service_DatachatSoap {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference2.WebService1Soap")]
+    public interface WebService1Soap {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -79,38 +79,66 @@ namespace SnapChat.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertUsers", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> insertUsersAsync(string User, string Pass, string State, string FullName, string Email, string Address);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/deleteMessage", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool deleteMessage(int id1, int id2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/deleteMessage", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> deleteMessageAsync(int id1, int id2);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertDatatoMessage", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         bool insertDatatoMessage(string id_user, string id_sender, System.DateTime time, string content, string State);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertDatatoMessage", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> insertDatatoMessageAsync(string id_user, string id_sender, System.DateTime time, string content, string State);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/addFriend", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool addFriend(int id1, int id2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/addFriend", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> addFriendAsync(int id1, int id2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/deleteFriend", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool deleteFriend(int id1, int id2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/deleteFriend", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> deleteFriendAsync(int id1, int id2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/deleteAccount", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool deleteAccount(int id1);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/deleteAccount", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> deleteAccountAsync(int id1);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface Service_DatachatSoapChannel : SnapChat.ServiceReference1.Service_DatachatSoap, System.ServiceModel.IClientChannel {
+    public interface WebService1SoapChannel : SnapChat.ServiceReference2.WebService1Soap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class Service_DatachatSoapClient : System.ServiceModel.ClientBase<SnapChat.ServiceReference1.Service_DatachatSoap>, SnapChat.ServiceReference1.Service_DatachatSoap {
+    public partial class WebService1SoapClient : System.ServiceModel.ClientBase<SnapChat.ServiceReference2.WebService1Soap>, SnapChat.ServiceReference2.WebService1Soap {
         
-        public Service_DatachatSoapClient() {
+        public WebService1SoapClient() {
         }
         
-        public Service_DatachatSoapClient(string endpointConfigurationName) : 
+        public WebService1SoapClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public Service_DatachatSoapClient(string endpointConfigurationName, string remoteAddress) : 
+        public WebService1SoapClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public Service_DatachatSoapClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public WebService1SoapClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public Service_DatachatSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public WebService1SoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
@@ -186,12 +214,44 @@ namespace SnapChat.ServiceReference1 {
             return base.Channel.insertUsersAsync(User, Pass, State, FullName, Email, Address);
         }
         
+        public bool deleteMessage(int id1, int id2) {
+            return base.Channel.deleteMessage(id1, id2);
+        }
+        
+        public System.Threading.Tasks.Task<bool> deleteMessageAsync(int id1, int id2) {
+            return base.Channel.deleteMessageAsync(id1, id2);
+        }
+        
         public bool insertDatatoMessage(string id_user, string id_sender, System.DateTime time, string content, string State) {
             return base.Channel.insertDatatoMessage(id_user, id_sender, time, content, State);
         }
         
         public System.Threading.Tasks.Task<bool> insertDatatoMessageAsync(string id_user, string id_sender, System.DateTime time, string content, string State) {
             return base.Channel.insertDatatoMessageAsync(id_user, id_sender, time, content, State);
+        }
+        
+        public bool addFriend(int id1, int id2) {
+            return base.Channel.addFriend(id1, id2);
+        }
+        
+        public System.Threading.Tasks.Task<bool> addFriendAsync(int id1, int id2) {
+            return base.Channel.addFriendAsync(id1, id2);
+        }
+        
+        public bool deleteFriend(int id1, int id2) {
+            return base.Channel.deleteFriend(id1, id2);
+        }
+        
+        public System.Threading.Tasks.Task<bool> deleteFriendAsync(int id1, int id2) {
+            return base.Channel.deleteFriendAsync(id1, id2);
+        }
+        
+        public bool deleteAccount(int id1) {
+            return base.Channel.deleteAccount(id1);
+        }
+        
+        public System.Threading.Tasks.Task<bool> deleteAccountAsync(int id1) {
+            return base.Channel.deleteAccountAsync(id1);
         }
     }
 }

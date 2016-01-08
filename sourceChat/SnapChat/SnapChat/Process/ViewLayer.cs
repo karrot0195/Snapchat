@@ -17,23 +17,10 @@ namespace SnapChat
 
         }
         //Sự kiện bấm vào nút đăng nhập
-        internal bool clickDangNhap(System.Windows.Forms.TextBox txtuser, System.Windows.Forms.TextBox txtpass)
+        internal int clickDangNhap(System.Windows.Forms.TextBox txtuser, System.Windows.Forms.TextBox txtpass)
         {
             int id = bsl.testDangNhap(txtuser, txtpass);
-            if (id!=0)
-            {
-                frmGiaoDien gd = new frmGiaoDien(id);
-                gd.Show();
-                return true;
-            }
-            else
-            {
-                System.Windows.Forms.MessageBox.Show("Lỗi", "");
-                txtpass.Text = "";
-                txtuser.Text = "";
-                return false;
-            }
-
+            return id;
         }
         //load giao diện
         internal void loadGiaoDien(int ID, System.Windows.Forms.ListView listViewdanhsach)
@@ -93,6 +80,35 @@ namespace SnapChat
         internal bool clickDangKi(System.Windows.Forms.TextBox txt_username, System.Windows.Forms.TextBox txt_pas, System.Windows.Forms.TextBox txt_re, System.Windows.Forms.TextBox txt_email)
         {
             return bsl.testDangKi(txt_username, txt_pas, txt_re, txt_email);
+        }
+
+
+
+        internal bool clickdelete_message(int id_user, System.Windows.Forms.Label lb_Sender, System.Windows.Forms.ListView listView_khungchat)
+        {
+            int id_sender = (int)bsl.svcl.findIDfromUsername(lb_Sender.Text);
+            return bsl.svcl.deleteMessage(id_user, id_sender);
+        }
+
+        internal bool clickAdd(int id1, String name_id2)
+        {
+            int id2 = bsl.svcl.findIDfromUsername(name_id2);
+            if(id2!=0)
+                return bsl.function_Process("addFriend", id1, id2);
+            return false;
+        }
+
+        internal bool clickDeleteFriend(int Id_user, string s)
+        {
+            int id2 = bsl.svcl.findIDfromUsername(s);
+            if (id2 != 0)
+                return bsl.function_Process("deleteFriend", Id_user, id2);
+            return false;
+        }
+
+        internal bool clickDeleteAccount(int Id_user)
+        {
+            return bsl.function_Process("deleteAccount", Id_user, -1);
         }
     }
 }

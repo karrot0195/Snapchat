@@ -136,6 +136,21 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="deleteMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id1" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id2" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deleteMessageResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="insertDatatoMessage">
         <s:complexType>
           <s:sequence>
@@ -151,6 +166,50 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="insertDatatoMessageResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addFriend">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id1" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id2" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addFriendResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="addFriendResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteFriend">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id1" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id2" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteFriendResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deleteFriendResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id1" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deleteAccountResult" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -210,13 +269,37 @@
   <wsdl:message name="insertUsersSoapOut">
     <wsdl:part name="parameters" element="tns:insertUsersResponse" />
   </wsdl:message>
+  <wsdl:message name="deleteMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteMessage" />
+  </wsdl:message>
+  <wsdl:message name="deleteMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteMessageResponse" />
+  </wsdl:message>
   <wsdl:message name="insertDatatoMessageSoapIn">
     <wsdl:part name="parameters" element="tns:insertDatatoMessage" />
   </wsdl:message>
   <wsdl:message name="insertDatatoMessageSoapOut">
     <wsdl:part name="parameters" element="tns:insertDatatoMessageResponse" />
   </wsdl:message>
-  <wsdl:portType name="Service_DatachatSoap">
+  <wsdl:message name="addFriendSoapIn">
+    <wsdl:part name="parameters" element="tns:addFriend" />
+  </wsdl:message>
+  <wsdl:message name="addFriendSoapOut">
+    <wsdl:part name="parameters" element="tns:addFriendResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteFriendSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteFriend" />
+  </wsdl:message>
+  <wsdl:message name="deleteFriendSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteFriendResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteAccount" />
+  </wsdl:message>
+  <wsdl:message name="deleteAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteAccountResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService1Soap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
       <wsdl:output message="tns:HelloWorldSoapOut" />
@@ -253,12 +336,28 @@
       <wsdl:input message="tns:insertUsersSoapIn" />
       <wsdl:output message="tns:insertUsersSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="deleteMessage">
+      <wsdl:input message="tns:deleteMessageSoapIn" />
+      <wsdl:output message="tns:deleteMessageSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="insertDatatoMessage">
       <wsdl:input message="tns:insertDatatoMessageSoapIn" />
       <wsdl:output message="tns:insertDatatoMessageSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="addFriend">
+      <wsdl:input message="tns:addFriendSoapIn" />
+      <wsdl:output message="tns:addFriendSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteFriend">
+      <wsdl:input message="tns:deleteFriendSoapIn" />
+      <wsdl:output message="tns:deleteFriendSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteAccount">
+      <wsdl:input message="tns:deleteAccountSoapIn" />
+      <wsdl:output message="tns:deleteAccountSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="Service_DatachatSoap" type="tns:Service_DatachatSoap">
+  <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="HelloWorld">
       <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
@@ -341,6 +440,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="deleteMessage">
+      <soap:operation soapAction="http://tempuri.org/deleteMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="insertDatatoMessage">
       <soap:operation soapAction="http://tempuri.org/insertDatatoMessage" style="document" />
       <wsdl:input>
@@ -350,8 +458,35 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="addFriend">
+      <soap:operation soapAction="http://tempuri.org/addFriend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteFriend">
+      <soap:operation soapAction="http://tempuri.org/deleteFriend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAccount">
+      <soap:operation soapAction="http://tempuri.org/deleteAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="Service_DatachatSoap12" type="tns:Service_DatachatSoap">
+  <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="HelloWorld">
       <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
@@ -434,6 +569,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="deleteMessage">
+      <soap12:operation soapAction="http://tempuri.org/deleteMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="insertDatatoMessage">
       <soap12:operation soapAction="http://tempuri.org/insertDatatoMessage" style="document" />
       <wsdl:input>
@@ -443,13 +587,40 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="addFriend">
+      <soap12:operation soapAction="http://tempuri.org/addFriend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteFriend">
+      <soap12:operation soapAction="http://tempuri.org/deleteFriend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAccount">
+      <soap12:operation soapAction="http://tempuri.org/deleteAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="Service_Datachat">
-    <wsdl:port name="Service_DatachatSoap" binding="tns:Service_DatachatSoap">
-      <soap:address location="http://localhost:1066/Service_Datachat.asmx" />
+  <wsdl:service name="WebService1">
+    <wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+      <soap:address location="http://localhost:1866/WebService1.asmx" />
     </wsdl:port>
-    <wsdl:port name="Service_DatachatSoap12" binding="tns:Service_DatachatSoap12">
-      <soap12:address location="http://localhost:1066/Service_Datachat.asmx" />
+    <wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+      <soap12:address location="http://localhost:1866/WebService1.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

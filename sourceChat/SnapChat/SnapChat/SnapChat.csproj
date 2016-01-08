@@ -46,40 +46,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLayer.cs" />
-    <Compile Include="DangKi.cs">
+    <Compile Include="Process\BusinessLayer.cs" />
+    <Compile Include="Screen\ChucNang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DangKi.Designer.cs">
+    <Compile Include="Screen\ChucNang.Designer.cs">
+      <DependentUpon>ChucNang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\DangKi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\DangKi.Designer.cs">
       <DependentUpon>DangKi.cs</DependentUpon>
     </Compile>
-    <Compile Include="DangNhap.cs">
+    <Compile Include="Screen\DangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DangNhap.Designer.cs">
+    <Compile Include="Screen\DangNhap.Designer.cs">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="GiaoDien.cs">
+    <Compile Include="Screen\GiaoDien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GiaoDien.Designer.cs">
+    <Compile Include="Screen\GiaoDien.Designer.cs">
       <DependentUpon>GiaoDien.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Process\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ServiceReference1\Reference.cs">
+    <Compile Include="Process\ViewLayer.cs" />
+    <Compile Include="Service References\ServiceReference2\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="ViewLayer.cs" />
-    <EmbeddedResource Include="DangKi.resx">
+    <EmbeddedResource Include="Screen\ChucNang.resx">
+      <DependentUpon>ChucNang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\DangKi.resx">
       <DependentUpon>DangKi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DangNhap.resx">
+    <EmbeddedResource Include="Screen\DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GiaoDien.resx">
+    <EmbeddedResource Include="Screen\GiaoDien.resx">
       <DependentUpon>GiaoDien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -102,7 +111,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\ServiceReference1\Service_Datachat.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -111,25 +119,18 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+    <WCFMetadataStorage Include="Service References\ServiceReference2\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\Service_Datachat.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReference1\Reference.svcmap">
+    <None Include="Service References\ServiceReference2\WebService1.wsdl" />
+    <None Include="SourceImage\clock.png" />
+    <None Include="Service References\ServiceReference2\WebService1.disco" />
+    <None Include="Service References\ServiceReference2\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference2\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference2\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="SourceImage\clock.png" />
     <Content Include="SourceImage\Icon1.jpg" />
     <Content Include="SourceImage\Icon2.jpg" />
     <Content Include="SourceImage\Icon3.jpg" />

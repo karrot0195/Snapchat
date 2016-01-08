@@ -83,7 +83,7 @@
             this.btn_dangnhap.BackColor = System.Drawing.Color.DarkViolet;
             this.btn_dangnhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_dangnhap.ForeColor = System.Drawing.Color.White;
-            this.btn_dangnhap.Location = new System.Drawing.Point(60, 197);
+            this.btn_dangnhap.Location = new System.Drawing.Point(60, 198);
             this.btn_dangnhap.Name = "btn_dangnhap";
             this.btn_dangnhap.Size = new System.Drawing.Size(94, 42);
             this.btn_dangnhap.TabIndex = 4;
@@ -111,6 +111,7 @@
             this.linkLabel1.TabIndex = 7;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Quên mật khẩu ...";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // linkLb_Sign
             // 
@@ -123,14 +124,12 @@
             this.linkLb_Sign.TabStop = true;
             this.linkLb_Sign.Text = "Đăng kí tài khoản ...";
             this.linkLb_Sign.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLb_Sign_LinkClicked);
-            this.linkLb_Sign.MouseClick += new System.Windows.Forms.MouseEventHandler(this.linkLb_Sign_MouseClick);
             // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrchid;
-            this.BackgroundImage = global::SnapChat.Properties.Resources.Icon1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(222, 419);
             this.Controls.Add(this.linkLb_Sign);
@@ -143,7 +142,6 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmDangNhap";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Snapchat";
             this.Load += new System.EventHandler(this.frmDangNhap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -13,16 +13,23 @@ namespace SnapChat
     class BusinessLayer
     {
         //Webservice
-        public ServiceReference1.Service_DatachatSoapClient svcl;
+        public ServiceReference2.WebService1SoapClient svcl;
         //Dataset
         public DataSet ds;
 
         //contructor
         public BusinessLayer()
         {
-            svcl = new ServiceReference1.Service_DatachatSoapClient();
-            //load dữ liệu bảng Users cho dataset
-            ds = svcl.loadDatafromTable("Users","");
+            try
+            {
+                svcl = new ServiceReference2.WebService1SoapClient();
+                //load dữ liệu bảng Users cho dataset
+                ds = svcl.loadDatafromTable("Users", "");
+            }
+            catch
+            {
+
+            }
         }
 
         //load dữ liệu của bảng nametable với điều kiện queue
@@ -148,7 +155,30 @@ namespace SnapChat
             }
           
         }
+        public bool function_Process(String key, int id1, int id2)
+        {
+            try {
+                switch (key)
+                {
+                    case "addFriend":
+                        svcl.addFriend(id1, id2);
+                        break;
 
+                    case "deleteFriend":
+                        svcl.deleteFriend(id1, id2);
+                        break;
+                    case "deleteAccount":
+                        svcl.deleteAccount(id1);
+                        break;
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+           
+        }
         internal bool testDangKi(TextBox txt_username, TextBox txt_pas, TextBox txt_re, TextBox txt_email)
         {
             if (txt_pas.Text != txt_re.Text)

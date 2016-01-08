@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3aa7e000-a479-4c88-9ef8-91d9f1eebf52" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2828bdc6-44a9-4e67-8e62-7f6a7fa91879" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:1066/Service_Datachat.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:1866/WebService1.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Service_Datachat.wsdl" MetadataType="Wsdl" ID="71479ff2-e846-4975-913c-a654bd4ec77a" SourceId="1" SourceUrl="http://localhost:1066/Service_Datachat.asmx?wsdl" />
-    <MetadataFile FileName="Service_Datachat.disco" MetadataType="Disco" ID="f9f9f87f-8d8c-4c9d-8495-12c1354a99e2" SourceId="1" SourceUrl="http://localhost:1066/Service_Datachat.asmx?disco" />
+    <MetadataFile FileName="WebService1.disco" MetadataType="Disco" ID="ddcd85b2-9596-4a14-96d2-bef94dd601c2" SourceId="1" SourceUrl="http://localhost:1866/WebService1.asmx?disco" />
+    <MetadataFile FileName="WebService1.wsdl" MetadataType="Wsdl" ID="6a07c59d-4ecd-4d1d-8600-219f59d36c6e" SourceId="1" SourceUrl="http://localhost:1866/WebService1.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
