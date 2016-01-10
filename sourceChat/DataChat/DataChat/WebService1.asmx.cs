@@ -167,16 +167,17 @@ namespace DataChat
                 //
                 DateTime dt = new DateTime();
                 dt = DateTime.Now;
-                String id = ""+dt.Day+dt.Month+(dt.Year%100)+dt.Hour+dt.Minute+dt.Second;
+                int id1 = dt.Day + dt.Month + dt.Year + dt.Hour + dt.Minute + dt.Second;
+                String id = "'"+id1+"'";
                 if (findIDfromUsername(User) != 0) return false;
                 connectData();
                 Cnt.Open();
-
-                String t = "insert Users values(" + id + "," + User + "," + Pass + "," + State + "," + FullName + "," + Email + "," + Address + ")";
+                //Insert Users values('113', 'HieuThanh', '123', 'False', NULL, 'a', NULL)
+                String t = "Insert Users values(" + id + "," + User + "," + Pass + "," + State + "," + FullName + "," + Email + "," + Address + ")";
                 SqlCommand cmn = new SqlCommand();
                 cmn.Connection = Cnt;
                 cmn.CommandType = CommandType.Text;
-                cmn.CommandText = t;
+                cmn.CommandText = t.Trim();
                 cmn.ExecuteNonQuery();
                 Cnt.Close();
                 return true;

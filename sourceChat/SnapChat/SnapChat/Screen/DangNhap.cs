@@ -51,11 +51,7 @@ namespace SnapChat
 
         }
 
-        private void btn_dangki_Click(object sender, EventArgs e)
-        {
-            //vl.clickDangKi(txtuser, txtpass);
-        }
-
+      
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
 
@@ -66,10 +62,9 @@ namespace SnapChat
         {
             DangKi dk = DangKi.getInstance();
             this.Visible = false;
-          //  dk.Show();
             if (dk.ShowDialog() == DialogResult.Cancel)
             {
-                dk.Close();
+                dk.DialogResult = DialogResult.None;
                 this.Visible = true;
                 vl = new ViewLayer();
             }
@@ -89,8 +84,5 @@ namespace SnapChat
         #endregion
 
        
-
-      
-
     }
 }

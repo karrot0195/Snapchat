@@ -181,7 +181,7 @@ namespace SnapChat
         }
         internal bool testDangKi(TextBox txt_username, TextBox txt_pas, TextBox txt_re, TextBox txt_email)
         {
-            if (txt_pas.Text != txt_re.Text)
+            if (txt_pas.Text != txt_re.Text ||svcl.findIDfromUsername(txt_username.Text)!=0)
             {
                 return false;
             }

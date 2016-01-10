@@ -14,7 +14,7 @@ namespace SnapChat
 
         public ViewLayer()
         {
-
+            BusinessLayer bsl = new BusinessLayer();
         }
         //Sự kiện bấm vào nút đăng nhập
         internal int clickDangNhap(System.Windows.Forms.TextBox txtuser, System.Windows.Forms.TextBox txtpass)
