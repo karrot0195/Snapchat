@@ -1,4 +1,4 @@
-﻿using SnapChat.Screen;
+﻿using SnapChat.PlugIns;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,26 +14,21 @@ namespace SnapChat
     public partial class frmGiaoDien : Form
     {
         private int id_user;
-
         public int Id_user
         {
             get { return id_user; }
             set { id_user = value; }
         }
-
-      
-    
         private ViewLayer viewLayer;
         private string p;
 
-       
 
-        public frmGiaoDien()
+        private static frmGiaoDien singleObject;
+        private frmGiaoDien()
         {
             InitializeComponent();
         }
-
-        public frmGiaoDien(int p)
+        private frmGiaoDien(int p)
         {
             // TODO: Complete member initialization
             this.Id_user = p;
@@ -42,14 +37,24 @@ namespace SnapChat
             InitializeComponent();
             viewLayer.loadGiaoDien(Id_user, listViewdanhsach);
             loadeventListFriend.Start();
-            this.Text = viewLayer.setUser(Id_user);
-            
-            
+            this.Text = viewLayer.setUser(Id_user);     
         }
-
-    
-
-     
+        public static frmGiaoDien getInstance(int p)
+        {
+            if (singleObject == null)
+            {
+                singleObject = new frmGiaoDien(p);
+            }
+            return singleObject;
+        }
+        public static frmGiaoDien getInstance()
+        {
+            if (singleObject == null)
+            {
+                singleObject = new frmGiaoDien();
+            }
+            return singleObject;
+        }
 
         private void btn_gui_Click(object sender, EventArgs e)
         {
@@ -115,65 +120,59 @@ namespace SnapChat
             }
          }
        //Thêm bạn
-        private void thêmBạnToolStripMenuItem_Click(object sender, EventArgs e)
+     
+     
+        private void frmGiaoDien_Load(object sender, EventArgs e)
         {
-            frmChucNang cn = new frmChucNang("ADD");
-            String s="";
-            cn.send_Info = (msg) => s = msg;
-            if (cn.ShowDialog() == DialogResult.OK)
+            string ThuMuc_PlugIn = Application.StartupPath + @"\PlugIns\";
+            //Lấy các nhân vật trong thư mục PlugIn
+
+            PlugIns.QL.Lay_Chuc_Nang(ThuMuc_PlugIn);
+            int i = 0;
+            foreach (ChucNang cn in PlugIns.QL.DsChucNang)
             {
-                if (viewLayer.clickAdd(Id_user, s) == true)
-                {
-                    MessageBox.Show("Complete", "NOTE");
-                }
-                else
-                {
-                    MessageBox.Show("Fail");
-                }
-            }
-          
-        }
-        //xóa bạn
-        private void xóaBạnToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmChucNang cn = new frmChucNang("DELETE");
-            String s = "";
-            cn.send_Info = (msg) => s = msg;
-            if (cn.ShowDialog() == DialogResult.OK)
-            {
-                if (viewLayer.clickDeleteFriend(Id_user, s) == true)
-                {
-                    MessageBox.Show("Complete", "NOTE");
-                }
-                else
-                {
-                    MessageBox.Show("Fail");
-                }
+                menuChucnang.DropDownItems.Add(cn.Chucnang.Ten);
+                menuChucnang.DropDownItems[i].Click += new EventHandler(clickItemMenu);
+              
+                i++;
             }
         }
 
-        private void xóaTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        private void clickItemMenu(object sender, EventArgs e)
         {
-            frmChucNang cn = new frmChucNang("Delete Account");
-            String s = "";
-            cn.send_Info = (msg) => s = msg;
-            if (cn.ShowDialog() == DialogResult.OK)
+            String s = sender + "";
+            PlugIns.QL.clear();
+            string ThuMuc_PlugIn = Application.StartupPath + @"\PlugIns\";
+            //Lấy các nhân vật trong thư mục PlugIn
+
+            PlugIns.QL.Lay_Chuc_Nang(ThuMuc_PlugIn);
+
+            foreach (ChucNang cn in PlugIns.QL.DsChucNang)
             {
-                if (viewLayer.clickDeleteAccount(Id_user) == true)
-                {
-                    MessageBox.Show("Complete", "NOTE");
-                    đăngXuấtToolStripMenuItem_Click(null, null);
-                }
-                else
-                {
-                    MessageBox.Show("Fail");
-                }
+               if(cn.Chucnang.Ten == s){
+                   Form GD = cn.Chucnang.GiaoDien;
+                   
+                   if (GD.ShowDialog() == DialogResult.OK)
+                   {
+                       GD.Close();
+                       String s1 = cn.Chucnang.Value;
+                       String s2 = cn.Chucnang.Key;
+                       if (viewLayer.ClickFunction(s2, Id_user, s1))
+                       {
+                           MessageBox.Show("Complete!", "");
+                       }
+                       else
+                       {
+                           MessageBox.Show("Fail", "");
+                       }
+                   }
+               }
             }
         }
 
-        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuDangxuat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

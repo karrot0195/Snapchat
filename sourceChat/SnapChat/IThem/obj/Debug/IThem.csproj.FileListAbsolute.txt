@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IThem\bin\Debug\IThem.dll
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IThem\bin\Debug\IThem.pdb
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IThem\bin\Debug\IChucNang.dll
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IThem\bin\Debug\IChucNang.pdb
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IThem\obj\Debug\IThem.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IThem\obj\Debug\IThem.Them.resources
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IThem\obj\Debug\IThem.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IThem\obj\Debug\IThem.dll
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IThem\obj\Debug\IThem.pdb

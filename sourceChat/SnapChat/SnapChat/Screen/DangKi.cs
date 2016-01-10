@@ -12,14 +12,21 @@ namespace SnapChat
 {
     public partial class DangKi : Form
     {
-     
 
-        public DangKi()
+        private static DangKi singleObject;
+        private DangKi()
         {
             InitializeComponent();
              
         }
-
+        public static DangKi getInstance()
+        {
+            if (singleObject == null)
+            {
+                singleObject = new DangKi();
+            }
+            return singleObject;
+        }
    
         private void btn_log_Click(object sender, EventArgs e)
         {

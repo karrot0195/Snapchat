@@ -1,0 +1,5 @@
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IChucNang\obj\Debug\IChucNang.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IChucNang\bin\Debug\IChucNang.dll
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IChucNang\bin\Debug\IChucNang.pdb
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IChucNang\obj\Debug\IChucNang.dll
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IChucNang\obj\Debug\IChucNang.pdb

@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IXoa\obj\Debug\IXoa.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IXoa\obj\Debug\IXoa.Xoa.resources
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IXoa\obj\Debug\IXoa.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IXoa\bin\Debug\IXoa.dll
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IXoa\bin\Debug\IXoa.pdb
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IXoa\bin\Debug\IChucNang.dll
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IXoa\bin\Debug\IChucNang.pdb
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IXoa\obj\Debug\IXoa.dll
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IXoa\obj\Debug\IXoa.pdb

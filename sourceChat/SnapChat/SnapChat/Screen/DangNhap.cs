@@ -28,7 +28,7 @@ namespace SnapChat
           
             if (id != 0)
             {
-                frmGiaoDien gd = new frmGiaoDien(id);
+                frmGiaoDien gd = frmGiaoDien.getInstance(id);
                 this.Visible = false;
                 if (gd.ShowDialog() == DialogResult.Cancel)
                 {
@@ -64,7 +64,7 @@ namespace SnapChat
      
         private void linkLb_Sign_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            DangKi dk = new DangKi();
+            DangKi dk = DangKi.getInstance();
             this.Visible = false;
           //  dk.Show();
             if (dk.ShowDialog() == DialogResult.Cancel)

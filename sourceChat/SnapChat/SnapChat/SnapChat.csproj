@@ -32,6 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IChucNang, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\IThem\bin\Debug\IChucNang.dll</HintPath>
+    </Reference>
+    <Reference Include="IThem, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\IThem\bin\Debug\IThem.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -46,13 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PlugIns\ChucNang.cs" />
+    <Compile Include="PlugIns\QL.cs" />
     <Compile Include="Process\BusinessLayer.cs" />
-    <Compile Include="Screen\ChucNang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screen\ChucNang.Designer.cs">
-      <DependentUpon>ChucNang.cs</DependentUpon>
-    </Compile>
     <Compile Include="Screen\DangKi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,9 +83,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Screen\ChucNang.resx">
-      <DependentUpon>ChucNang.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Screen\DangKi.resx">
       <DependentUpon>DangKi.cs</DependentUpon>
     </EmbeddedResource>

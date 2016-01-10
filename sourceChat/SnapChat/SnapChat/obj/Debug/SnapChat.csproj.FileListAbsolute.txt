@@ -23,4 +23,7 @@ C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\SnapChat\obj\
 C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\SnapChat\obj\Debug\SnapChat.frmGiaoDien.resources
 C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\SnapChat\obj\Debug\SnapChat.Properties.Resources.resources
 C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\SnapChat\obj\Debug\SnapChat.csproj.GenerateResource.Cache
-C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\SnapChat\obj\Debug\SnapChat.Screen.frmChucNang.resources
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\SnapChat\bin\Debug\IChucNang.dll
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\SnapChat\bin\Debug\IThem.dll
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\SnapChat\bin\Debug\IChucNang.pdb
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\SnapChat\bin\Debug\IThem.pdb

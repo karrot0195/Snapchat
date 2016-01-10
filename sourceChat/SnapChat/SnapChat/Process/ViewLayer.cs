@@ -110,5 +110,11 @@ namespace SnapChat
         {
             return bsl.function_Process("deleteAccount", Id_user, -1);
         }
+
+        internal bool ClickFunction(String s1, int i1, String s)
+        {
+            int i2 = bsl.svcl.findIDfromUsername(s);
+            return bsl.function_Process(s1, i1, i2);
+        }
     }
 }

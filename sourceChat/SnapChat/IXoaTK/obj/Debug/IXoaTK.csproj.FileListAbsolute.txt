@@ -1,0 +1,8 @@
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IXoaTK\obj\Debug\IXoaTK.XoaTaiKhoan.resources
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IXoaTK\obj\Debug\IXoaTK.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IXoaTK\bin\Debug\IXoaTK.dll
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IXoaTK\bin\Debug\IXoaTK.pdb
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IXoaTK\bin\Debug\IChucNang.dll
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IXoaTK\bin\Debug\IChucNang.pdb
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IXoaTK\obj\Debug\IXoaTK.dll
+C:\Users\Administrator\Desktop\GitHub\Snapchat\sourceChat\SnapChat\IXoaTK\obj\Debug\IXoaTK.pdb

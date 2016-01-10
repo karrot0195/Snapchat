@@ -5,6 +5,14 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnapChat", "SnapChat\SnapChat.csproj", "{BD3E4B04-527F-4794-BC41-00A70716419E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IChucNang", "IChucNang\IChucNang.csproj", "{19A82D06-02CE-4D11-8D1B-4038A0702DD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IThem", "IThem\IThem.csproj", "{66D6EC9F-5BB6-429B-9674-53BE9838ACE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IXoa", "IXoa\IXoa.csproj", "{D3E6B004-51F0-43DC-A351-909C80E3EE16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IXoaTK", "IXoaTK\IXoaTK.csproj", "{2B179984-AE77-4093-B1A0-4CA682660217}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +23,22 @@ Global
 		{BD3E4B04-527F-4794-BC41-00A70716419E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD3E4B04-527F-4794-BC41-00A70716419E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD3E4B04-527F-4794-BC41-00A70716419E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19A82D06-02CE-4D11-8D1B-4038A0702DD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19A82D06-02CE-4D11-8D1B-4038A0702DD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19A82D06-02CE-4D11-8D1B-4038A0702DD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19A82D06-02CE-4D11-8D1B-4038A0702DD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66D6EC9F-5BB6-429B-9674-53BE9838ACE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66D6EC9F-5BB6-429B-9674-53BE9838ACE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66D6EC9F-5BB6-429B-9674-53BE9838ACE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66D6EC9F-5BB6-429B-9674-53BE9838ACE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3E6B004-51F0-43DC-A351-909C80E3EE16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3E6B004-51F0-43DC-A351-909C80E3EE16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3E6B004-51F0-43DC-A351-909C80E3EE16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3E6B004-51F0-43DC-A351-909C80E3EE16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B179984-AE77-4093-B1A0-4CA682660217}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B179984-AE77-4093-B1A0-4CA682660217}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B179984-AE77-4093-B1A0-4CA682660217}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B179984-AE77-4093-B1A0-4CA682660217}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
